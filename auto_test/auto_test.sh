@@ -36,32 +36,42 @@ function init()
 
 function runtest()
 {
-        ./${1}
+    ./${1}
+}
+
+function paralell_run()
+{
+    fileList=$(ls -R ${1}*.sh)
+
+    for filename in ${fileList}
+    do
+        ./paralell.sh ${filename} 1 &
+    done
 }
 
 function autorun()
 {
-        fileList=$(ls -R ${1})
-        pushd ${1} >> /dev/null
+    fileList=$(ls -R ${1})
+    pushd ${1} >> /dev/null
 	echo "-------------------- Round ${COUNT} ----------------------" | tee -a ${2}
-        for filename in ${fileList}
+    for filename in ${fileList}
 	do
 
-	if [[ "${filename}" == *.sh ]]; then
-		echo "Test ${filename} ..." | tee -a ${2}
-		RET=`runtest ${filename} | tee -a ${2} | grep -E "Passed|Failed|TEMP"`
-		echo $RET
-		ERR=`echo $RET | grep "Failed"`
-		if [[ ${ERR} != "" ]]; then
-			echo "[${COUNT}] $DAT ${ERR}" >> ${2}.err
-		fi
+		if [[ "${filename}" == *.sh ]]; then
+			echo "Test ${filename} ..." | tee -a ${2}
+			RET=`runtest ${filename} | tee -a ${2} | grep -E "Passed|Failed|TEMP"`
+			echo $RET
+			ERR=`echo $RET | grep "Failed"`
+			if [[ ${ERR} != "" ]]; then
+				echo "[${COUNT}] $DAT ${ERR}" >> ${2}.err
+			fi
 		
-		echo "Test ${filename} done" >> ${2}
-		echo "------------------------------------------" >> ${2}
-	fi
+			echo "Test ${filename} done" >> ${2}
+			echo "------------------------------------------" >> ${2}
+		fi
 
 	done
-        popd >> /dev/null
+    popd >> /dev/null
 }
 
 DATE=`date +%Y%m%d.%H.%M.%S`
@@ -69,7 +79,7 @@ COUNT=0
 logPath="${PWD}/log"
 START_TIME=`date +%s`
 echo "start testing ${1}"
-echo "make test log file ${DATE}_testLog"
+echo "make test log file ${DATE}_testLog.txt"
 echo "${DATE}_testLog log" > ${logPath}/${DATE}_testLog.txt
 echo "${DATE} Error log" > ${logPath}/${DATE}_testLog.txt.err
 
@@ -78,32 +88,35 @@ init
 sleep 3
 
 case ${1} in
-  "a")
+	"a")
         autorun auto_test ${DATE}_testLog.txt
         cat auto_test/${DATE}_testLog.txt
         ;;
-  "c")
+	"c")
         autorun custom_test ${DATE}_testLog.txt
         ;;
-  "script/")
-		chmod a+x ${1}*.sh
+	"paralell/")
+        paralell_run paralell/
+        ;;
+	"script/")
+        chmod a+x ${1}*.sh
         while true
         do
-                ((COUNT++))
-                NOW_TIME=`date +%s`
-                Cost=$((NOW_TIME - START_TIME))
-                DAT=`date -d @$Cost -u | cut -d" " -f 5`
-                clear
-                #echo "Testing Times:$COUNT, Running Time:$DAT"
-                echo -e "\033[40;37mTesting Counts:$COUNT, Running Time:$DAT\033[0m"
-                #cat ${logPath}/${DATE}_testLog.txt.err
-                printf "\033[40;37m\033[0m"
-                autorun ${1} ${logPath}/${DATE}_testLog.txt 
-                sleep 2
+            ((COUNT++))
+            NOW_TIME=`date +%s`
+            Cost=$((NOW_TIME - START_TIME))
+            DAT=`date -d @$Cost -u | cut -d" " -f 5`
+            clear
+            #echo "Testing Times:$COUNT, Running Time:$DAT"
+            echo -e "\033[40;37mTesting Counts:$COUNT, Running Time:$DAT\033[0m"
+            #cat ${logPath}/${DATE}_testLog.txt.err
+            printf "\033[40;37m\033[0m"
+            autorun ${1} ${logPath}/${DATE}_testLog.txt 
+            sleep 2
         done
         ;;
-  *)
-        autorun ${1} ${DATE}_testLog.txt
+	*)
+    	autorun ${1} ${DATE}_testLog.txt
         echo "Packaging all tests you want into dir /custom_test"
         echo "For single test type dir like /test_sdcard"
         ;;

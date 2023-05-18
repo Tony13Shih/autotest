@@ -1,7 +1,5 @@
 #!/bin/sh
 
-EEPROM="/sys/bus/i2c/devices/0-0050/eeprom"
-
 EXIT=$1
 
 function fail_check()
@@ -13,11 +11,11 @@ function fail_check()
 
 function eeprom_test()
 {
-	DEV=$1
+	DEV="/sys/bus/i2c/devices/0-0050/eeprom"
 
 	WriteStr="HELLOWORLD!"
 
-	ReadStr=`hexdump -C $DEV -n 16 | awk '{print $18}' | cut -c 2-12`
+	ReadStr=`hexdump -C ${DEV} -n 16 | awk '{print $18}' | cut -c 2-12`
 
 	if [ "$ReadStr" == "$WriteStr" ]; then
 		echo -e "\033[32m[EEPROM] Read Test Passed.\033[0m"
@@ -29,4 +27,4 @@ function eeprom_test()
 	sleep 1
 }
 
-eeprom_test $EEPROM
+eeprom_test

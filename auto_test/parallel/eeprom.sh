@@ -24,7 +24,7 @@ function eeprom_test()
 		fail_check
 	fi
 
-	sleep 1
+	sleep 2
 }
 
 eeprom_test

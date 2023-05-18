@@ -1,6 +1,6 @@
 #!/bin/sh
 
-TEMPDIR="${PWD}/../tmp"
+TEMPDIR="${PWD}/tmp"
 TEMPFILE="${TEMPDIR}/wifi.log"
 
 EXIT=$1
@@ -35,6 +35,8 @@ function wifi_test()
 		echo -e "\033[031m[WIFI] WiFi Test Failed.\033[0m"
 		fail_check
 	fi
+
+	sleep 2
 }
 
 wifi_test

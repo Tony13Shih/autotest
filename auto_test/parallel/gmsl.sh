@@ -19,6 +19,8 @@ function gmsl_test()
 	else
 		echo -e "\033[31m[GMSL] Test Failed.\033[0m"
 	fi
+
+	sleep 2
 }
 
 gmsl_test

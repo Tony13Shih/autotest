@@ -1,6 +1,6 @@
 #!/bin/sh
 
-TEMPDIR="${PWD}/../tmp"
+TEMPDIR="${PWD}/tmp"
 TEMPFILE="${TEMPDIR}/uart.log"
 
 EXIT=$1
@@ -35,6 +35,8 @@ function uart_test()
 		echo -e "\033[31m[UART] /dev/$DEV Test Failed.\033[0m"
 		fail_check
 	fi
+
+	sleep 2
 }
 
-
+uart_test

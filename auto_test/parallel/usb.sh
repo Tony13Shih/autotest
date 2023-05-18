@@ -29,11 +29,9 @@ function usb_test()
 		fail_check
 	fi
 
+	sleep 2
 }
 
 usb_test sda
-sleep 1
 usb_test sdb
-sleep 1
 usb_test sdc
-sleep 1

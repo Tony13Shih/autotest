@@ -1,6 +1,6 @@
 #!/bin/sh
 
-TEMPDIR="${PWD}/../tmp"
+TEMPDIR="${PWD}/tmp"
 TEMPFILE="${TEMPDIR}/can.log"
 
 EXIT=$1
@@ -56,13 +56,11 @@ function can_test()
 		echo -e "\033[31m[CAN] $1 <--> $2 Test Failed.\033[0m"
 		fail_check
 	fi
+
+	sleep 2
 }
 
 can_test can1 can0
-sleep 1
 can_test can1 can2
-sleep 1
 can_test can3 can4
-sleep 1
 can_test can5 can6
-sleep 1

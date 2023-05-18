@@ -1,6 +1,6 @@
 #!/bin/sh
 
-TEMPDIR="${PWD}/../tmp"
+TEMPDIR="${PWD}/tmp"
 TEMPFILE="${TEMPDIR}/eth0.log"
 
 EXIT=$1
@@ -38,6 +38,8 @@ function eth_test()
 		echo -e "\033[031m[ETH] eth0 Test Failed.\033[0m"
 		fail_check
 	fi
+
+	sleep 2
 }
 
 eth_test

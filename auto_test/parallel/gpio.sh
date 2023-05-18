@@ -118,6 +118,8 @@ function gpio_test()
 			fail_check
 		fi	
 	fi
+
+	sleep 2
 }
 
 gpio_init

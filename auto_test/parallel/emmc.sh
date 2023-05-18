@@ -48,6 +48,7 @@ function emmc_test()
 		fail_check
 	fi
 
+	sleep 2
 }
 
 emmc_partition mmcblk1

@@ -12,6 +12,9 @@ if [ ! -e "${PWD}/tmp" ]; then
 	mkdir tmp
 fi
 
+if [ ! -e "${PWD}/parallel/tmp" ]; then
+	mkdir -p "${PWD}/parallel/tmp"
+
 echo "disabled" > /sys/devices/virtual/thermal/thermal_zone0/mode 
 echo "disabled" > /sys/devices/virtual/thermal/thermal_zone1/mode
 echo "disabled" > /sys/devices/virtual/thermal/thermal_zone4/mode
@@ -39,13 +42,13 @@ function runtest()
     ./${1}
 }
 
-function paralell_run()
+function parallel_run()
 {
     fileList=$(ls -R ${1}*.sh)
 
     for filename in ${fileList}
     do
-        ./paralell.sh ${filename} 1 &
+        ./parallel.sh ${filename} 1 &
     done
 }
 
@@ -96,7 +99,7 @@ case ${1} in
         autorun custom_test ${DATE}_testLog.txt
         ;;
 	"paralell/")
-        paralell_run paralell/
+        parallel_run parallel/
         ;;
 	"script/")
         chmod a+x ${1}*.sh

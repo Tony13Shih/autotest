@@ -19,6 +19,8 @@ function gyro_test()
 		echo -e "\033[31m[GYRO] Test Failed.\033[0m"
 		fail_check
 	fi
+
+	sleep 2
 }
 
 gyro_test

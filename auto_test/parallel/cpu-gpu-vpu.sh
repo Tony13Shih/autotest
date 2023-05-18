@@ -1,8 +1,8 @@
 #!/bin/sh
 
-source /unit_tests/test_utils.sh
+source /unit_tests/test-utils.sh
 
-V="{$PWD}/video/1.mp4"
+V="${HOME}/auto_test/video/1.mp4"
 
 while true
 do

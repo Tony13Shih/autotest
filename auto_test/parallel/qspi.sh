@@ -22,6 +22,8 @@ function qspi_test()
 		echo -e "\033[31m[QSPI] Read Test Failed.\033[0m"
 		fail_check
 	fi
+
+	sleep 2
 }
 
 

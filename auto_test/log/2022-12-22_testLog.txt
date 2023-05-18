@@ -1,0 +1,367 @@
+2022-12-22_testLog log
+-------------------- Round 1 ----------------------
+Test can.sh ...
+[32m[CAN] can1 <--> can0 Test Passed.[0m
+[32m[CAN] can1 <--> can2 Test Passed.[0m
+[32m[CAN] can3 <--> can4 Test Passed.[0m
+[32m[CAN] can5 <--> can6 Test Passed.[0m
+Test can.sh done
+------------------------------------------
+Test cpu.sh ...
+[32m[CPU] Test Passed.[0m
+Test cpu.sh done
+------------------------------------------
+Test eeprom.sh ...
+[32m[EEPROM] Read Test Passed.[0m
+Test eeprom.sh done
+------------------------------------------
+Test emmc.sh ...
+[32m[EMMC] /dev/mmcblk0p1 Read/Write Passed.[0m
+Test emmc.sh done
+------------------------------------------
+Test eth0.sh ...
+PING 169.254.0.200 (169.254.0.200) from 169.254.0.100 : 56(84) bytes of data.
+
+--- 169.254.0.200 ping statistics ---
+10 packets transmitted, 10 received, 0% packet loss, time 9211ms
+rtt min/avg/max/mdev = 0.020/0.039/0.108/0.028 ms
+[032m[ETH] eth0 Test Passed.[0m
+Test eth0.sh done
+------------------------------------------
+Test eth1.sh ...
+PING 169.254.0.100 (169.254.0.100) from 169.254.0.200 : 56(84) bytes of data.
+
+--- 169.254.0.100 ping statistics ---
+10 packets transmitted, 10 received, 0% packet loss, time 9212ms
+rtt min/avg/max/mdev = 0.020/0.031/0.105/0.025 ms
+[032m[ETH] eth1 Test Passed.[0m
+Test eth1.sh done
+------------------------------------------
+Test gmsl.sh ...
+[32m[GMSL] Test Passed.[0m
+Test gmsl.sh done
+------------------------------------------
+Test gpio.sh ...
+[32m[GPIO] DO0 <-> DI0 : Passed.[0m
+[32m[GPIO] DO1 <~> DI1 : Passed.[0m
+[32m[GPIO] DO2 <~> DI2 : Passed.[0m
+[32m[GPIO] DO3 <~> DI3 : Passed.[0m
+Test gpio.sh done
+------------------------------------------
+Test gpu.sh ...
+Rendered 100 frames in 1638 milliseconds: 61.05 fps
+[32m[GPU] Test Passed.[0m
+Test gpu.sh done
+------------------------------------------
+Test gyro.sh ...
+[32m[GYRO] Passed.[0m
+Test gyro.sh done
+------------------------------------------
+Test qspi.sh ...
+[32m[QSPI] Read Test Passed.[0m
+Test qspi.sh done
+------------------------------------------
+Test temp.sh ...
+[032m[TEMP] A53  : 49.70 C
+[0m[032m[TEMP] A72  : 49.50 C
+[0m[032m[TEMP] PMIC : 47.90 C
+[0m[032m[TEMP] CPU Frequency:1200000[0m
+Test temp.sh done
+------------------------------------------
+Test uart.sh ...
+[32m[UART] /dev/ttyLP1 Test Passed.[0m
+Test uart.sh done
+------------------------------------------
+Test usb.sh ...
+[32m[USB] /dev/sda Read/Write Passed.[0m
+[31m[USB] /dev/sdb Read/Write Failed.[0m
+[31m[USB] /dev/sdc Read/Write Failed.[0m
+Test usb.sh done
+------------------------------------------
+Test vpu.sh ...
+Setting pipeline to PAUSED ...
+Pipeline is PREROLLING ...
+
+====== AIUR: 4.5.7 build on Dec 23 2022 05:55:35. ======
+	Core: MPEG4PARSER_06.17.17  build on Nov 12 2020 05:13:57
+ file: /usr/lib/imx-mm/parser/lib_mp4_parser_arm_elinux.so.3.2
+------------------------
+    Track 00 [audio_0] Enabled
+	Duration: 0:01:01.184000000
+	Language: eng
+    Mime:
+	audio/mpeg, mpegversion=(int)4, channels=(int)2, rate=(int)48000, bitrate=(int)127984, stream-format=(string)raw, codec_data=(buffer)1190 
+------------------------
+
+====== BEEP: 4.5.7 build on Dec 23 2022 05:55:47. ======
+	Core: AAC decoder Wrapper  build on Jul 28 2020 10:45:34
+ file: /usr/lib/imx-mm/audio-codec/wrap/lib_aacd_wrap_arm_elinux.so.3
+[1;33mCODEC: BLN_MAD-MMCODECS_AACD_ARM_03.09.00_ARMV8  build on Sep 20 2017 15:02:50.
+[0m------------------------
+    Track 01 [video_0] Enabled
+	Duration: 0:01:01.196400000
+	Language: eng
+    Mime:
+	video/x-h264, parsed=(boolean)true, alignment=(string)au, stream-format=(string)avc, width=(int)1920, height=(int)1080, framerate=(fraction)30000/1001, codec_data=(buffer)0142e000ffe10032274240289db01e008979701100000fa40003a980e480001312d00009896a0a563240000989680004c4b5052b0ed04422424001000428ca8e20 
+------------------------
+Redistribute latency...
+Pipeline is PREROLLED ...
+Setting pipeline to PLAYING ...
+New clock: GstSystemClock
+Got EOS from element "pipeline0".
+Execution ended after 0:01:01.162396625
+Setting pipeline to PAUSED ...
+Setting pipeline to READY ...
+Setting pipeline to NULL ...
+Total showed frames (1834), playing for (0:01:01.163457625), fps (29.985).
+Freeing pipeline ...
+[32m[VPU] Test Passed.[0m
+Test vpu.sh done
+------------------------------------------
+-------------------- Round 2 ----------------------
+Test can.sh ...
+[32m[CAN] can1 <--> can0 Test Passed.[0m
+[32m[CAN] can1 <--> can2 Test Passed.[0m
+[32m[CAN] can3 <--> can4 Test Passed.[0m
+[32m[CAN] can5 <--> can6 Test Passed.[0m
+Test can.sh done
+------------------------------------------
+Test cpu.sh ...
+[32m[CPU] Test Passed.[0m
+Test cpu.sh done
+------------------------------------------
+Test eeprom.sh ...
+[32m[EEPROM] Read Test Passed.[0m
+Test eeprom.sh done
+------------------------------------------
+Test emmc.sh ...
+[32m[EMMC] /dev/mmcblk0p1 Read/Write Passed.[0m
+Test emmc.sh done
+------------------------------------------
+Test eth0.sh ...
+PING 169.254.0.200 (169.254.0.200) from 169.254.0.100 : 56(84) bytes of data.
+
+--- 169.254.0.200 ping statistics ---
+10 packets transmitted, 10 received, 0% packet loss, time 9222ms
+rtt min/avg/max/mdev = 0.020/0.045/0.120/0.035 ms
+[032m[ETH] eth0 Test Passed.[0m
+Test eth0.sh done
+------------------------------------------
+Test eth1.sh ...
+PING 169.254.0.100 (169.254.0.100) from 169.254.0.200 : 56(84) bytes of data.
+
+--- 169.254.0.100 ping statistics ---
+10 packets transmitted, 10 received, 0% packet loss, time 9210ms
+rtt min/avg/max/mdev = 0.019/0.032/0.106/0.025 ms
+[032m[ETH] eth1 Test Passed.[0m
+Test eth1.sh done
+------------------------------------------
+Test gmsl.sh ...
+[32m[GMSL] Test Passed.[0m
+Test gmsl.sh done
+------------------------------------------
+Test gpio.sh ...
+[32m[GPIO] DO0 <-> DI0 : Passed.[0m
+[32m[GPIO] DO1 <~> DI1 : Passed.[0m
+[32m[GPIO] DO2 <~> DI2 : Passed.[0m
+[32m[GPIO] DO3 <~> DI3 : Passed.[0m
+Test gpio.sh done
+------------------------------------------
+Test gpu.sh ...
+Rendered 100 frames in 1640 milliseconds: 60.98 fps
+[32m[GPU] Test Passed.[0m
+Test gpu.sh done
+------------------------------------------
+Test gyro.sh ...
+[32m[GYRO] Passed.[0m
+Test gyro.sh done
+------------------------------------------
+Test qspi.sh ...
+[32m[QSPI] Read Test Passed.[0m
+Test qspi.sh done
+------------------------------------------
+Test temp.sh ...
+[032m[TEMP] A53  : 50.70 C
+[0m[032m[TEMP] A72  : 50.10 C
+[0m[032m[TEMP] PMIC : 49.10 C
+[0m[032m[TEMP] CPU Frequency:1200000[0m
+Test temp.sh done
+------------------------------------------
+Test uart.sh ...
+[32m[UART] /dev/ttyLP1 Test Passed.[0m
+Test uart.sh done
+------------------------------------------
+Test usb.sh ...
+[32m[USB] /dev/sda Read/Write Passed.[0m
+[31m[USB] /dev/sdb Read/Write Failed.[0m
+[31m[USB] /dev/sdc Read/Write Failed.[0m
+Test usb.sh done
+------------------------------------------
+Test vpu.sh ...
+Setting pipeline to PAUSED ...
+Pipeline is PREROLLING ...
+
+====== AIUR: 4.5.7 build on Dec 23 2022 05:55:35. ======
+	Core: MPEG4PARSER_06.17.17  build on Nov 12 2020 05:13:57
+ file: /usr/lib/imx-mm/parser/lib_mp4_parser_arm_elinux.so.3.2
+------------------------
+    Track 00 [audio_0] Enabled
+	Duration: 0:01:01.184000000
+	Language: eng
+    Mime:
+	audio/mpeg, mpegversion=(int)4, channels=(int)2, rate=(int)48000, bitrate=(int)127984, stream-format=(string)raw, codec_data=(buffer)1190 
+------------------------
+
+====== BEEP: 4.5.7 build on Dec 23 2022 05:55:47. ======
+	Core: AAC decoder Wrapper  build on Jul 28 2020 10:45:34
+ file: /usr/lib/imx-mm/audio-codec/wrap/lib_aacd_wrap_arm_elinux.so.3
+[1;33mCODEC: BLN_MAD-MMCODECS_AACD_ARM_03.09.00_ARMV8  build on Sep 20 2017 15:02:50.
+[0m------------------------
+    Track 01 [video_0] Enabled
+	Duration: 0:01:01.196400000
+	Language: eng
+    Mime:
+	video/x-h264, parsed=(boolean)true, alignment=(string)au, stream-format=(string)avc, width=(int)1920, height=(int)1080, framerate=(fraction)30000/1001, codec_data=(buffer)0142e000ffe10032274240289db01e008979701100000fa40003a980e480001312d00009896a0a563240000989680004c4b5052b0ed04422424001000428ca8e20 
+------------------------
+Redistribute latency...
+Pipeline is PREROLLED ...
+Setting pipeline to PLAYING ...
+New clock: GstSystemClock
+Got EOS from element "pipeline0".
+Execution ended after 0:01:01.162539375
+Setting pipeline to PAUSED ...
+Setting pipeline to READY ...
+Setting pipeline to NULL ...
+Total showed frames (1834), playing for (0:01:01.163451000), fps (29.985).
+Freeing pipeline ...
+[32m[VPU] Test Passed.[0m
+Test vpu.sh done
+------------------------------------------
+-------------------- Round 3 ----------------------
+Test can.sh ...
+[32m[CAN] can1 <--> can0 Test Passed.[0m
+[32m[CAN] can1 <--> can2 Test Passed.[0m
+[32m[CAN] can3 <--> can4 Test Passed.[0m
+[32m[CAN] can5 <--> can6 Test Passed.[0m
+Test can.sh done
+------------------------------------------
+Test cpu.sh ...
+[32m[CPU] Test Passed.[0m
+Test cpu.sh done
+------------------------------------------
+Test eeprom.sh ...
+[32m[EEPROM] Read Test Passed.[0m
+Test eeprom.sh done
+------------------------------------------
+Test emmc.sh ...
+[32m[EMMC] /dev/mmcblk0p1 Read/Write Passed.[0m
+Test emmc.sh done
+------------------------------------------
+Test eth0.sh ...
+PING 169.254.0.200 (169.254.0.200) from 169.254.0.100 : 56(84) bytes of data.
+
+--- 169.254.0.200 ping statistics ---
+10 packets transmitted, 10 received, 0% packet loss, time 9200ms
+rtt min/avg/max/mdev = 0.020/0.039/0.110/0.029 ms
+[032m[ETH] eth0 Test Passed.[0m
+Test eth0.sh done
+------------------------------------------
+Test eth1.sh ...
+PING 169.254.0.100 (169.254.0.100) from 169.254.0.200 : 56(84) bytes of data.
+
+--- 169.254.0.100 ping statistics ---
+10 packets transmitted, 10 received, 0% packet loss, time 9211ms
+rtt min/avg/max/mdev = 0.034/0.042/0.061/0.010 ms
+[032m[ETH] eth1 Test Passed.[0m
+Test eth1.sh done
+------------------------------------------
+Test gmsl.sh ...
+[32m[GMSL] Test Passed.[0m
+Test gmsl.sh done
+------------------------------------------
+Test gpio.sh ...
+[32m[GPIO] DO0 <-> DI0 : Passed.[0m
+[32m[GPIO] DO1 <~> DI1 : Passed.[0m
+[32m[GPIO] DO2 <~> DI2 : Passed.[0m
+[32m[GPIO] DO3 <~> DI3 : Passed.[0m
+Test gpio.sh done
+------------------------------------------
+Test gpu.sh ...
+Rendered 100 frames in 1640 milliseconds: 60.98 fps
+[32m[GPU] Test Passed.[0m
+Test gpu.sh done
+------------------------------------------
+Test gyro.sh ...
+[32m[GYRO] Passed.[0m
+Test gyro.sh done
+------------------------------------------
+Test qspi.sh ...
+[32m[QSPI] Read Test Passed.[0m
+Test qspi.sh done
+------------------------------------------
+Test temp.sh ...
+[032m[TEMP] A53  : 51.30 C
+[0m[032m[TEMP] A72  : 51.30 C
+[0m[032m[TEMP] PMIC : 49.50 C
+[0m[032m[TEMP] CPU Frequency:1200000[0m
+Test temp.sh done
+------------------------------------------
+Test uart.sh ...
+[32m[UART] /dev/ttyLP1 Test Passed.[0m
+Test uart.sh done
+------------------------------------------
+Test usb.sh ...
+[32m[USB] /dev/sda Read/Write Passed.[0m
+[31m[USB] /dev/sdb Read/Write Failed.[0m
+[31m[USB] /dev/sdc Read/Write Failed.[0m
+Test usb.sh done
+------------------------------------------
+Test vpu.sh ...
+Setting pipeline to PAUSED ...
+Pipeline is PREROLLING ...
+
+====== AIUR: 4.5.7 build on Dec 23 2022 05:55:35. ======
+	Core: MPEG4PARSER_06.17.17  build on Nov 12 2020 05:13:57
+ file: /usr/lib/imx-mm/parser/lib_mp4_parser_arm_elinux.so.3.2
+------------------------
+    Track 00 [audio_0] Enabled
+	Duration: 0:01:01.184000000
+	Language: eng
+    Mime:
+	audio/mpeg, mpegversion=(int)4, channels=(int)2, rate=(int)48000, bitrate=(int)127984, stream-format=(string)raw, codec_data=(buffer)1190 
+------------------------
+
+====== BEEP: 4.5.7 build on Dec 23 2022 05:55:47. ======
+	Core: AAC decoder Wrapper  build on Jul 28 2020 10:45:34
+ file: /usr/lib/imx-mm/audio-codec/wrap/lib_aacd_wrap_arm_elinux.so.3
+[1;33mCODEC: BLN_MAD-MMCODECS_AACD_ARM_03.09.00_ARMV8  build on Sep 20 2017 15:02:50.
+[0m------------------------
+    Track 01 [video_0] Enabled
+	Duration: 0:01:01.196400000
+	Language: eng
+    Mime:
+	video/x-h264, parsed=(boolean)true, alignment=(string)au, stream-format=(string)avc, width=(int)1920, height=(int)1080, framerate=(fraction)30000/1001, codec_data=(buffer)0142e000ffe10032274240289db01e008979701100000fa40003a980e480001312d00009896a0a563240000989680004c4b5052b0ed04422424001000428ca8e20 
+------------------------
+Redistribute latency...
+Pipeline is PREROLLED ...
+Setting pipeline to PLAYING ...
+New clock: GstSystemClock
+Got EOS from element "pipeline0".
+Execution ended after 0:01:01.162499250
+Setting pipeline to PAUSED ...
+Setting pipeline to READY ...
+Setting pipeline to NULL ...
+Total showed frames (1834), playing for (0:01:01.163445000), fps (29.985).
+Freeing pipeline ...
+[32m[VPU] Test Passed.[0m
+Test vpu.sh done
+------------------------------------------
+-------------------- Round 4 ----------------------
+Test can.sh ...
+[32m[CAN] can1 <--> can0 Test Passed.[0m
+[32m[CAN] can1 <--> can2 Test Passed.[0m
+[32m[CAN] can3 <--> can4 Test Passed.[0m
+[32m[CAN] can5 <--> can6 Test Passed.[0m
+Test can.sh done
+------------------------------------------
+Test cpu.sh ...

@@ -1,0 +1,4 @@
+2022-12-22 Error log
+[1] 00:00:03 [32m[USB] /dev/sda Read/Write Passed.[0m [31m[USB] /dev/sdb Read/Write Failed.[0m [31m[USB] /dev/sdc Read/Write Failed.[0m
+[2] 00:02:18 [32m[USB] /dev/sda Read/Write Passed.[0m [31m[USB] /dev/sdb Read/Write Failed.[0m [31m[USB] /dev/sdc Read/Write Failed.[0m
+[3] 00:04:32 [32m[USB] /dev/sda Read/Write Passed.[0m [31m[USB] /dev/sdb Read/Write Failed.[0m [31m[USB] /dev/sdc Read/Write Failed.[0m

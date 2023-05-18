@@ -1,6 +1,6 @@
 #!/bin/sh
 
-TEMPDIR="${PWD}/tmp"
+TEMPDIR="${PWD}/../tmp"
 TEMPFILE="${TEMPDIR}/eth0.log"
 
 EXIT=$1

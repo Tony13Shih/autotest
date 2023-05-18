@@ -1,6 +1,6 @@
 #!/bin/sh
 
-TEMPDIR="${PWD}/tmp"
+TEMPDIR="${PWD}/../tmp"
 TEMPFILE="${TEMPDIR}/can.log"
 
 EXIT=$1

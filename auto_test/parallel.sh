@@ -5,7 +5,7 @@ EXIT=$2
 
 function pskill()
 {
-    killall -9 paralell.sh &> /dev/null
+    killall -9 parallel.sh &> /dev/null
 }
 
 function test()

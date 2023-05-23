@@ -88,8 +88,8 @@ sleep 3
 
 case ${1} in
 	"a")
-        autorun auto_test ${LOGFILE}
-        cat auto_test/${LOGFILE}
+        autorun ${TESTDIR} ${LOGFILE}
+        cat ${LOGFILE}
         ;;
 	"c")
         autorun custom_test ${LOGFILE}

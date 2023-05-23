@@ -6,6 +6,7 @@ EXIT=$2
 function pskill()
 {
     killall -9 parallel.sh &> /dev/null
+    killall -9 cpu-gpu-vpu.sh &> /dev/null
 }
 
 function test()

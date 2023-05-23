@@ -1,8 +1,8 @@
 #!/bin/sh
 
 TEMPDIR="${PWD}/tmp"
-TEMPFILE="${TEMPDIR}/wifi.log"
-NETCFG="${PWD}/conf/mlan0.conf"
+TEMPFILE="${TEMPDIR}/lte.log"
+NETCFG="${PWD}/conf/wwan0.conf"
 
 EXIT=$1
 
@@ -13,25 +13,24 @@ function fail_check()
 	fi
 }
 
-function wifi_test()
+function lte_test()
 {
-	DEV="mlan0"
+	DEV="wwan0"
 	TIME=1
-	THERSHOLD=2
-
+	
 	#IP_PREFIX="192.168.0"
 	#LOCAL_IP="${IP_PREFIX}.150"
 	#REMOTE_IP="${IP_PREFIX}.1"
 
-	LOCAL_IP=`cat ${NETCFG} | grep ${DEV} | cut -d: -f2`
-	REMOTE_IP=`cat ${NETCFG} | grep ${DEV} | cut -d -f3`
+    LOCAL_IP=`cat ${NETCFG} | grep ${DEV} | cat -d: -f2`
+    REMOTE_IP=`cat ${NETCFG} | grep ${DEV} | cat -d: -f3`
 
 	rm $TEMPFILE &> /dev/null
 
-	#ifconfig mlan0 ${LOCAL_IP}
+	#ifconfig wwan0 ${LOCAL_IP}
 	ping -q -c $TIME ${REMOTE_IP} -I ${LOCAL_IP} | tee -a $TEMPFILE
 
-	DUP=`cat $TEMPFILE | grep duplicate`
+    DUP=`cat $TEMPFILE | grep duplicate`
 
     if [ -z $DUP ]; then
         RET=`cat $TEMPFILE | grep packet | awk '{print $6}'`
@@ -40,14 +39,14 @@ function wifi_test()
     fi
 
 	if [ "$RET" == "0%" ]; then
-		echo -e "\033[032m[WIFI] WiFi Test Passed.\033[0m"
+		echo -e "\033[032m[LTE] LTE Test Passed.\033[0m"
 	else
-		echo -e "\033[031m[WIFI] WiFi Test Failed.\033[0m"
+		echo -e "\033[031m[LTE] LTE Test Failed.\033[0m"
 		fail_check
 	fi
 
 	sleep 2
 }
 
-wifi_test
+lte_test
 

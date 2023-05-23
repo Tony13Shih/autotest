@@ -1,22 +1,14 @@
 #!/bin/sh
 
-EXIT=$1
 SIZE=${SIZE:=1024}
-
-function fail_check()
-{
-	if [ ! -z $EXIT ]; then
-		exit 1
-	fi
-}
 
 function emmc_partition()
 {
 
-	MMCDEV=$1
+MMCDEV=$1
 
-	RET=`fdisk -l /dev/${MMCDEV} | grep "${MMCDEV}p1"`
-	if [ -z "$RET" ]; then
+RET=`fdisk -l /dev/${MMCDEV} | grep "${MMCDEV}p1"`
+if [ -z "$RET" ]; then
         umount /dev/${MMCDEV}p1 &> /dev/null
         fdisk /dev/${MMCDEV} &> /dev/null << EOF
 n
@@ -26,7 +18,7 @@ p
 
 w
 EOF
-	fi
+fi
 
 }
 
@@ -45,10 +37,8 @@ function emmc_test()
 		echo -e "\033[32m[EMMC] /dev/${MMCDEV}p1 Read/Write Passed.\033[0m"
 	else
 		echo -e "\033[32m[EMMC] /dev/${MMCDEV}p1 Read/Write Failed.\033[0m"
-		fail_check
 	fi
 
-	sleep 2
 }
 
 emmc_partition mmcblk1

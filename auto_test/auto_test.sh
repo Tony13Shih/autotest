@@ -4,16 +4,9 @@ if [ ! -e "${PWD}/log" ]; then
 	mkdir log
 fi
 
-if [ -e "${PWD}/log/*_testLog.txt" ]; then
-	rm "${PWD}/log/*"
-fi
-
 if [ ! -e "${PWD}/tmp" ]; then
 	mkdir tmp
 fi
-
-if [ ! -e "${PWD}/parallel/tmp" ]; then
-	mkdir -p "${PWD}/parallel/tmp"
 
 echo "disabled" > /sys/devices/virtual/thermal/thermal_zone0/mode 
 echo "disabled" > /sys/devices/virtual/thermal/thermal_zone1/mode
@@ -22,8 +15,7 @@ echo "performance" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
 
 function init()
 {
-	ifconfig eth0 169.254.0.200
-	ifconfig eth1 169.254.0.100
+	./ip_table.sh ${1}
 
 	stty -F /dev/ttyLP1 speed 115200 raw -echo &
 
@@ -48,7 +40,7 @@ function parallel_run()
 
     for filename in ${fileList}
     do
-        ./parallel.sh ${filename} 1 &
+        ./parallel.sh ${filename} "EXIT" &
     done
 }
 
@@ -78,31 +70,34 @@ function autorun()
 }
 
 DATE=`date +%Y%m%d.%H.%M.%S`
+TESTDIR="script/"
+LOGDIR="${PWD}/log"
+LOGFILE="${LOGDIR}/${DATE}_testLog.txt"
+ERRFILE="${LOGDIR}/${DATE}_testLog.txt.err"
 COUNT=0
-logPath="${PWD}/log"
 START_TIME=`date +%s`
-echo "start testing ${1}"
-echo "make test log file ${DATE}_testLog.txt"
-echo "${DATE}_testLog log" > ${logPath}/${DATE}_testLog.txt
-echo "${DATE} Error log" > ${logPath}/${DATE}_testLog.txt.err
 
-init
+echo "Start Testing ${1}"
+echo "make test log file ${LOGFILE}"
+echo "${DATE}_testLog log" > ${LOGFILE}
+echo "${DATE}_Error log" > ${ERRFILE}
+
+init ${1}
 
 sleep 3
 
 case ${1} in
 	"a")
-        autorun auto_test ${DATE}_testLog.txt
-        cat auto_test/${DATE}_testLog.txt
+        autorun auto_test ${LOGFILE}
+        cat auto_test/${LOGFILE}
         ;;
 	"c")
-        autorun custom_test ${DATE}_testLog.txt
+        autorun custom_test ${LOGFILE}
         ;;
-	"paralell/")
-        parallel_run parallel/
+	"p")
+        parallel_run ${TESTDIR}
         ;;
-	"script/")
-        chmod a+x ${1}*.sh
+	"l")
         while true
         do
             ((COUNT++))
@@ -114,12 +109,12 @@ case ${1} in
             echo -e "\033[40;37mTesting Counts:$COUNT, Running Time:$DAT\033[0m"
             #cat ${logPath}/${DATE}_testLog.txt.err
             printf "\033[40;37m\033[0m"
-            autorun ${1} ${logPath}/${DATE}_testLog.txt 
+            autorun ${TESTDIR} ${LOGFILE}
             sleep 2
         done
         ;;
 	*)
-    	autorun ${1} ${DATE}_testLog.txt
+    	autorun ${TESTDIR} ${LOGFILE}
         echo "Packaging all tests you want into dir /custom_test"
         echo "For single test type dir like /test_sdcard"
         ;;

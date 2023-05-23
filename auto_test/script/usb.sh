@@ -1,6 +1,14 @@
 #!/bin/sh
 
+EXIT=$1
 SIZE=${SIZE:=1024}
+
+function fail_check()
+{
+	if [ ! -z $EXIT ]; then
+		exit 1
+	fi
+}
 
 function usb_test()
 {
@@ -18,13 +26,12 @@ function usb_test()
 
 	else
 		echo -e "\033[31m[USB] /dev/${USBDEV} Read/Write Failed.\033[0m"
+		fail_check
 	fi
 
+	sleep 2
 }
 
 usb_test sda
-sleep 1
 usb_test sdb
-sleep 1
 usb_test sdc
-sleep 1

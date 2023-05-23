@@ -27,3 +27,4 @@ function qspi_test()
 }
 
 
+qspi_test

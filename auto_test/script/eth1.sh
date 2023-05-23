@@ -33,9 +33,9 @@ function eth_test()
 	RET=`cat $TEMPFILE | grep packet | awk '{print $6}'`
 
 	if [ "$RET" == "0%" ]; then
-		echo -e "\033[032m[ETH] eth0 Test Passed.\033[0m"
+		echo -e "\033[032m[ETH] eth1 Test Passed.\033[0m"
 	else
-		echo -e "\033[031m[ETH] eth0 Test Failed.\033[0m"
+		echo -e "\033[031m[ETH] eth1 Test Failed.\033[0m"
 		fail_check
 	fi
 

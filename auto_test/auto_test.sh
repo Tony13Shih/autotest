@@ -72,6 +72,7 @@ function autorun()
 DATE=`date +%Y%m%d.%H.%M.%S`
 TESTDIR="script/"
 LOGDIR="${PWD}/log"
+rm ${LOGDIR}/* &> /dev/null
 LOGFILE="${LOGDIR}/${DATE}_testLog.txt"
 ERRFILE="${LOGDIR}/${DATE}_testLog.txt.err"
 COUNT=0

@@ -4,6 +4,7 @@ if [ ${1} == "l" ]; then
     CONFDIR="${PWD}/script/conf"
 else
     CONFDIR="${PWD}/conf"
+fi
 
 mkdir -p ${CONFDIR}
 

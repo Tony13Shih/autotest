@@ -24,7 +24,7 @@ function wifi_test()
 	#REMOTE_IP="${IP_PREFIX}.1"
 
 	LOCAL_IP=`cat ${NETCFG} | grep ${DEV} | cut -d: -f2`
-	REMOTE_IP=`cat ${NETCFG} | grep ${DEV} | cut -d -f3`
+	REMOTE_IP=`cat ${NETCFG} | grep ${DEV} | cut -d: -f3`
 
 	rm $TEMPFILE &> /dev/null
 

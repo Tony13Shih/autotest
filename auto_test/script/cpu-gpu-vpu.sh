@@ -38,7 +38,7 @@ do
 
 	gst-launch-1.0 filesrc location=$V ! decodebin ! imxvideoconvert_g2d ! queue ! autovideosink &
 
-	sleep 30
+	sleep 15
 
 	killall -9 gst-launch-1.0
 

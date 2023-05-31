@@ -40,7 +40,7 @@ function emmc_test()
 		rm /tmp/data_${MMCDEV}_bak
 		sync
 
-		dd if=/tmp/data_emmc of=/dev/${MMVDEV}p1 bs=1 seek=4096 &> /dev/null
+		dd if=/tmp/data_emmc of=/dev/${MMCDEV}p1 bs=1 seek=4096 &> /dev/null
 
 		echo -e "\033[32m[EMMC] /dev/${MMCDEV}p1 Read/Write Passed.\033[0m"
 	else
